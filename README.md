@@ -51,19 +51,15 @@ We need to convert the PEM file into a P12 file that is readable by the keytool.
 openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey /etc/letsencrypt/live/YOURDOMAIN/privkey.pem -out KEYSTORENAME.p12 -name KEYSTOREALIAS
 ```
 
-YOURDOMAIN replacement is the folder corresponding to the domain 
-that you’re generating the key for, and was present in the listed output from the previous step. 
+YOURDOMAIN replacement is the folder corresponding to the domain that you’re generating the key for, and was present in the listed output from the previous step. 
 
-KEYSTORENAME will become part of the generated file name, 
-and will be used in the WildFly configuration, as will the KEYSTOREALIAS. 
-
-These can be anything of your choice. 
+KEYSTORENAME will become part of the generated file name, and will be used in the WildFly xml of configuration, as will the KEYSTOREALIAS. 
 
 Once you’ve pressed enter, you’ll be prompted (and verified) for a new password. 
-This new password will be used in a moment when we generate the keystore.  (PREVIOUSPASSWORD)
+This new password will be used in a moment when we generate the keystore.  (called it PREVIOUSPASSWORD)
 
 
-Generating the keystore
+Generating the keystore java (.jks)
 
 ```
 /usr/lib/jvm/jdk1.7.0_80/bin/keytool -importkeystore -deststorepass WILDFLY_NEW_STORE_PASS -destkeypass WILDFLY_NEW_KEY_PASS -destkeystore NEW_KEYSTORE_FILE.jks -srckeystore KEYSTORENAME.p12 -srcstoretype PKCS12 -srcstorepass PREVIOUSPASSWORD -alias KEYSTOREALIAS
@@ -85,4 +81,10 @@ Find the <security-realms> section and specifically the one you’re setting up
                   key-password="WILDFLY_NEW_KEY_PASS"/>
    </ssl>
 </server-identities>
+```
+
+Start the application server
+
+```
+service wildfly start
 ```
