@@ -6,10 +6,10 @@ Common file related certificate gethttpsforfree.com
 
 <i>If you will have the following <b>PEM</b>-encoded files:</i>
 
-cert.pem:   Your domain's certificate
-chain.pem:   The Let's Encrypt chain certificate
-fullchain.pem:   cert.pem and chain.pem combined
-privkey.pem:   Your certificate's private key
+- cert.pem:   Your domain's certificate
+- chain.pem:   The Let's Encrypt chain certificate
+- fullchain.pem:   cert.pem and chain.pem combined
+- privkey.pem:   Your certificate's private key
 
 Download the certbot-auto script
 
