@@ -6,10 +6,10 @@ Common file related certificate gethttpsforfree.com
 
 <i>If you will have the following <b>PEM</b>-encoded files:</i>
 
-- cert.pem:   Your domain's certificate
-- chain.pem:   The Let's Encrypt chain certificate
-- fullchain.pem:   cert.pem and chain.pem combined
-- privkey.pem:   Your certificate's private key
+- cert.pem:   Server certificate only
+- chain.pem:   Root and intermediate certificates only, Let’s Encrypt chain
+- fullchain.pem:   Previous cert.pem and chain.pem combined
+- privkey.pem:   Your certificate's private key (do not share this with anyone)
 
 Download the certbot-auto script
 
@@ -22,9 +22,23 @@ sudo chmod a+x certbot-auto
 Now that certbot is hopefully installed, we need to ask it to create/renew certificate.
 
 <ul>
-	<li>./certbot-auto renew</li>
-	<li>./certbot-auto certonly --agree-tos --rsa-key-size 4096 --renew-by-default -m dnsadmin@mydomain.com --webroot /var/www/html/ -d mail.mydomain.com --renew-by-default –dry-run</li>
+	<li>certbot-auto renew</li>
+	<li>certbot-auto certonly --standalone --standalone-supported-challenges --agree-tos --rsa-key-size 4096 --renew-by-default --email admin@example.com --webroot /var/www/html/ -d example.com -d www.example.com -d other.example.com –dry-run</li>
 </ul>
+
+<i>
+IMPORTANT NOTES:<br>
+ - Congratulations! Your certificate and chain have been saved at<br>
+   /etc/letsencrypt/live/soundapp.it/fullchain.pem. Your cert will<br>
+   expire on 2017-07-19. To obtain a new or tweaked version of this<br>
+   certificate in the future, simply run certbot-auto again. To<br>
+   non-interactively renew *all* of your certificates, run<br>
+   "certbot-auto renew"<br>
+ - If you like Certbot, please consider supporting our work by:<br>
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate<br>
+   Donating to EFF:                    https://eff.org/donate-le
+</i>
 
 At the end, the command show somithings like this:
 
