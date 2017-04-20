@@ -26,6 +26,9 @@ Now that certbot is hopefully installed, we need to ask it to create/renew certi
 	<li>certbot-auto certonly --standalone --standalone-supported-challenges --agree-tos --rsa-key-size 4096 --renew-by-default --email admin@example.com --webroot /var/www/html/ -d example.com -d www.example.com -d other.example.com –dry-run</li>
 </ul>
 
+<br>
+At the end, the command show somithings like this:
+<br>
 <i>
 IMPORTANT NOTES:<br>
  - Congratulations! Your certificate and chain have been saved at<br>
@@ -39,11 +42,7 @@ IMPORTANT NOTES:<br>
    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate<br>
    Donating to EFF:                    https://eff.org/donate-le
 </i>
-
-At the end, the command show somithings like this:
-
-<i>new certificate deployed with reload of apache server; fullchain is
-/etc/letsencrypt/live/YOURDOMAIN/fullchain.pem</i>
+<br>
 
 We need to get the public and private keys into Wildfly. Instead of (Apache, Nginx) was setup with the public and private keys pointed to separately, but Wildfly (generally, Java) works off of a keystore.
 We need to convert the PEM file into a P12 file that is readable by the keytool.
