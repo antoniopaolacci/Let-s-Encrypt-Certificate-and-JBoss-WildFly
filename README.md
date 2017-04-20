@@ -23,7 +23,7 @@ Now that certbot is hopefully installed, we need to ask it to create/renew certi
 
 <ul>
 	<li>certbot-auto renew</li>
-	<li>certbot-auto certonly --standalone --standalone-supported-challenges --agree-tos --rsa-key-size 4096 --renew-by-default --email admin@example.com --webroot /var/www/html/ -d example.com -d www.example.com -d other.example.com –dry-run</li>
+	<li>certbot-auto certonly --standalone --standalone-supported-challenges http-01 --agree-tos --rsa-key-size 4096 --renew-by-default --email admin@example.com -d example.com -d www.example.com</li>
 </ul>
 
 <br>
@@ -32,8 +32,8 @@ At the end, the command show somithings like this:
 <i>
 IMPORTANT NOTES:<br>
  - Congratulations! Your certificate and chain have been saved at<br>
-   /etc/letsencrypt/live/soundapp.it/fullchain.pem. Your cert will<br>
-   expire on 2017-07-19. To obtain a new or tweaked version of this<br>
+   /etc/letsencrypt/live/***/fullchain.pem. Your cert will<br>
+   expire on ***. To obtain a new or tweaked version of this<br>
    certificate in the future, simply run certbot-auto again. To<br>
    non-interactively renew *all* of your certificates, run<br>
    "certbot-auto renew"<br>
