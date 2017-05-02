@@ -28,9 +28,9 @@ Now that certbot is hopefully installed, we need to ask it to create/renew certi
 
 <br>
 At the end, the command show somethings like this:
-<br>
+<br><br>
 <i>
-IMPORTANT NOTES:<br><br>
+IMPORTANT NOTES:<br>
  - Congratulations! Your certificate and chain have been saved at<br>
    /etc/letsencrypt/live/***/fullchain.pem. Your cert will<br>
    expire on ***. To obtain a new or tweaked version of this<br>
@@ -53,7 +53,8 @@ openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey
 
 YOURDOMAIN replacement is the folder corresponding to the domain that you’re generating the key for, and was present in the listed output from the previous step. 
 
-KEYSTORENAME will become part of the generated file name, and will be used in the WildFly xml of configuration, as will the KEYSTOREALIAS. 
+KEYSTORENAME will become part of the generated file name, and will be used in the WildFly xml of configuration, 
+as will the KEYSTOREALIAS. 
 
 Once you’ve pressed enter, you’ll be prompted (and verified) for a new password. 
 This new password will be used in a moment when we generate the keystore.  (called it PREVIOUSPASSWORD)
