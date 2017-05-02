@@ -27,10 +27,10 @@ Now that certbot is hopefully installed, we need to ask it to create/renew certi
 </ul>
 
 <br>
-At the end, the command show somithings like this:
+At the end, the command show somethings like this:
 <br>
 <i>
-IMPORTANT NOTES:<br>
+IMPORTANT NOTES:<br><br>
  - Congratulations! Your certificate and chain have been saved at<br>
    /etc/letsencrypt/live/***/fullchain.pem. Your cert will<br>
    expire on ***. To obtain a new or tweaked version of this<br>
@@ -75,10 +75,10 @@ Find the <security-realms> section and specifically the one you’re setting up
 <server-identities>
    <ssl>
       <keystore path="NEW_KEYSTORE_FILE.jks" 
-                  relative-to="jboss.server.config.dir" 
-                  keystore-password="WILDFLY_NEW_STORE_PASS" 
-                  alias="KEYSTOREALIAS" 
-                  key-password="WILDFLY_NEW_KEY_PASS"/>
+                relative-to="jboss.server.config.dir" 
+                keystore-password="WILDFLY_NEW_STORE_PASS" 
+                alias="KEYSTOREALIAS" 
+                key-password="WILDFLY_NEW_KEY_PASS"/>
    </ssl>
 </server-identities>
 ```
