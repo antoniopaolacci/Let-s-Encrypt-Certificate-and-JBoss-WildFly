@@ -70,9 +70,9 @@ Generating the keystore java (.jks)
 sudo cp NEW_KEYSTORE_FILE.jks /opt/wildfly/standalone/configuration/
 ```
 
-WILDFLY_NEW_STORE_PASS is keystore password
-WILDFLY_NEW_KEY_PASS   is the destination keystore password
-NEW_KEYSTORE_FILE      is the final .jks name
+WILDFLY_NEW_STORE_PASS is keystore password <br>
+WILDFLY_NEW_KEY_PASS   is the destination keystore password <br>
+NEW_KEYSTORE_FILE      is the final .jks name <br>
 
 ```
 Find the <security-realms> section and specifically the one you’re setting up
