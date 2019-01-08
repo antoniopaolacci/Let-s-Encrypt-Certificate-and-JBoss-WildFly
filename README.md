@@ -19,7 +19,7 @@ sudo wget https://dl.eff.org/certbot-auto
 sudo chmod a+x certbot-auto
 ```
 
-Now that certbot is hopefully installed, we need to ask it to create/renew certificate.
+Now that certbot is hopefully installed, we need to ask it to renew/create certificate.
 
 Stop all services running on port 80.
 
@@ -46,8 +46,10 @@ IMPORTANT NOTES:<br>
 </i>
 <br>
 
-We need to get the public and private keys into Wildfly. Instead of (Apache, Nginx) was setup with the public and private keys pointed to separately, but Wildfly (generally, Java) works off of a keystore.
-We need to convert the PEM file into a P12 file that is readable by the keytool.
+We need to get the public and private keys into Wildfly. Instead of (for example Apache, Nginx) that were setup with the public and private keys pointed to separately, Wildfly (generally Java) works off of a keystore.
+We need to convert the PEM file into a P12 file that is readable format by the keytool.
+
+Use openssl tools.
 
 ```
 openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey /etc/letsencrypt/live/YOURDOMAIN/privkey.pem -out KEYSTORENAME.p12 -name KEYSTOREALIAS
