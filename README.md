@@ -24,7 +24,7 @@ Now that certbot is hopefully installed, we need to ask it to renew/create certi
 Stop all services running on port 80.
 
 <ul>
-	<li>[certbot-auto renew](#renew-section)</li> 
+	<li>[certbot-auto renew](#renew)</li> 
 	<li>certbot-auto certonly --standalone --standalone-supported-challenges http-01 --agree-tos --rsa-key-size 4096 --renew-by-default --email admin@example.com -d example.com -d www.example.com</li>
 </ul>
 
@@ -100,4 +100,4 @@ service wildfly start
 ```
 
 
-## renew-section 
+##renew 
