@@ -103,3 +103,51 @@ service wildfly start
 
 
 ### certbot-auto renew 
+
+# Disable cronjob task that automatic restart wildfly if is down/crash
+
+```
+crontab -e 
+```
+
+Comment line with # char
+
+Stop all services running on port 80
+
+```
+service apache2 stop
+service wildfly stop
+```
+
+```
+./certbot-auto renew [--dry-run option to do a test]
+```
+
+Change dir and make a backup dir of previous certs
+
+```
+cd dir-new-ssl-cert
+```
+
+Run following command:
+
+```
+openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey /etc/letsencrypt/live/YOURDOMAIN/privkey.pem -out NEW_KEYSTORE_FILE.p12 -name fluikappalias
+```
+
+```
+/usr/lib/jvm/jdk1.7.0_80/bin/keytool -importkeystore -deststorepass WILDFLY_NEW_STORE_PASS -destkeypass WILDFLY_NEW_KEY_PASS -destkeystore NEW_KEYSTORE_FILE.jks -srckeystore NEW_KEYSTORE_FILE.p12 -srcstoretype PKCS12 -srcstorepass fluikapp -alias fluikappalias
+```
+
+Install jks on jboss folder (ex: /opt/wildfly/standalone/configuration/...)
+
+```
+sudo cp NEW_KEYSTORE_FILE.jks /opt/wildfly/standalone/configuration/
+```
+
+Restart all services:
+
+```
+service apache2 start
+service wildfly start
+```
