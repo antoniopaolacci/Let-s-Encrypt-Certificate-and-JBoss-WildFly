@@ -104,13 +104,11 @@ service wildfly start
 
 ### certbot-auto renew 
 
-Disable cronjob task that automatic restart wildfly if is down/crash
+Disable cronjob task that automatic restart wildfly if is down/crash, comment line with <i>#</i> char.
 
 ```
 crontab -e 
 ```
-
-Comment line with <i>#</i> char
 
 Stop all services running on port 80
 
