@@ -124,8 +124,12 @@ cd dir-new-ssl-cert
 ```
 
 Display contents:
-<i>domain.p12</i>
-<i>domain.jks</i>
+- <i>domain.p12</i>
+- <i>domain.jks</i>
+- <i>account.key</i>
+- <i>domain.key</i>
+- <i>intermediate.crt</i>
+- <i>domain.crt</i>
 
 Execute:
 ```
@@ -142,7 +146,8 @@ openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey
 /usr/lib/jvm/jdk1.7.0_80/bin/keytool -importkeystore -deststorepass WILDFLY_NEW_STORE_PASS -destkeypass WILDFLY_NEW_KEY_PASS -destkeystore NEW_KEYSTORE_FILE.jks -srckeystore NEW_KEYSTORE_FILE.p12 -srcstoretype PKCS12 -srcstorepass fluikapp -alias fluikappalias
 ```
 
-Install jks on jboss folder (for ex: /opt/wildfly/standalone/configuration/...)  <i>jboss.server.config.dir on standalone.xml</i>
+Install jks on jboss folder (ex: /opt/wildfly/standalone/configuration/...)  <br> 
+<i>(ex: jboss.server.config.dir on file standalone.xml)</i>
 
 ```
 sudo cp NEW_KEYSTORE_FILE.jks /opt/wildfly/standalone/configuration/ 
