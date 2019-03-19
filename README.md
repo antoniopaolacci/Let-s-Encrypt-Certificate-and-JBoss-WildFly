@@ -117,19 +117,11 @@ service apache2 stop
 service wildfly stop
 ```
 
-Enter dir where related certs are and make a backup dir of previous certs
+Enter dir where related certs are and make a backup dir of certs or jks
 
 ```
 cd dir-new-ssl-cert
 ```
-
-Display contents:
-- <i>domain.p12</i>
-- <i>domain.jks</i>
-- <i>account.key</i>
-- <i>domain.key</i>
-- <i>intermediate.crt</i>
-- <i>domain.crt</i>
 
 Execute:
 ```
