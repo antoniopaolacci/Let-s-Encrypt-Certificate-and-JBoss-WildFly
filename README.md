@@ -48,7 +48,12 @@ IMPORTANT NOTES:<br>
 </i>
 <br>
 
-We need to get the public and private keys into Wildfly. Instead of (for example Apache, Nginx) that were setup with the public and private keys pointed to separately, Wildfly (generally Java) works off of a keystore.
+NOTE:
+If you're working in Java then the <b>Java Key Store</b> is the natural place to store private keys. Java applications typically expect to get the keys they need from JKS, and it's easy to access from your own Java apps. JKS is not accessible (without jumping through a few hoops) from outside Java.
+
+PKCS#12 (aka PFX) files, are the format (often called <b>.p12</b> or .pfx) where you can store a private key and certificates. They are a language-neutral way to store encrypted private keys and certificates, and has been around long enough that it's supported just about everywhere.
+
+We need to get the public and private keys into Wildfly. Instead of (for example Apache, Nginx) that were setup with the public and private keys pointed to separately, Wildfly (generally Java) works off of a keystore (<b>.jks</b>).
 We need to convert the PEM file into a P12 file that is readable format by the keytool.
 
 Use openssl tools.
