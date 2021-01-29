@@ -136,11 +136,11 @@ Execute:
 Run following command with replacement of placeholders:
 
 ```
-openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey /etc/letsencrypt/live/YOURDOMAIN/privkey.pem -out NEW_KEYSTORE_FILE.p12 -name fluikappalias
+openssl pkcs12 -export -in /etc/letsencrypt/live/YOURDOMAIN/fullchain.pem -inkey /etc/letsencrypt/live/YOURDOMAIN/privkey.pem -out NEW_KEYSTORE_FILE.p12 -name KEYSTOREALIAS
 ```
 
 ```
-/usr/lib/jvm/jdk1.7.0_80/bin/keytool -importkeystore -deststorepass WILDFLY_NEW_STORE_PASS -destkeypass WILDFLY_NEW_KEY_PASS -destkeystore NEW_KEYSTORE_FILE.jks -srckeystore NEW_KEYSTORE_FILE.p12 -srcstoretype PKCS12 -srcstorepass fluikapp -alias fluikappalias
+/usr/lib/jvm/jdk1.7.0_80/bin/keytool -importkeystore -deststorepass WILDFLY_NEW_STORE_PASS -destkeypass WILDFLY_NEW_KEY_PASS -destkeystore NEW_KEYSTORE_FILE.jks -srckeystore NEW_KEYSTORE_FILE.p12 -srcstoretype PKCS12 -srcstorepass PREVIOUSPASSWORD -alias KEYSTOREALIAS
 ```
 
 Install jks on jboss folder (ex: /opt/wildfly/standalone/configuration/...)  <br> 
